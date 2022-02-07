@@ -5,8 +5,8 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,13 +15,10 @@ public class GeneratedTests extends TestBase {
     @Test
     @Description("Soon to be implemented by you (or QA.GURU engineers)")
     @DisplayName("Main page test")
-    void generatedTest() {
-        step("Open \"https://habr.com/\"", () -> {
-            step("// todo: just add selenium action");
-        });
-
-        step("element_1, element_2 is not null", () -> {
-            step("// todo: just add selenium action");
+    void postsListTest() {
+        step("Open 'https://habr.com/'", () -> { open("https://habr.com/"); });
+        step("Page should have posts", () -> {
+            $$(".tm-articles-list .tm-articles-list__item").shouldHave(sizeGreaterThan(0));
         });
     }
 
